@@ -11,8 +11,8 @@ loop ( my $g = $n div 2 ; $g > 0; $g = $g div 2 ) {
     #say "{$i+1} ==> @a[$i]";
     my $current = @a[$i];
     print-array2($i);
-    loop ( my $j = $i; $j >= $g && @a[$i - $g] > $current; $j = $j - $g ) {
-      say "shift {@a[$j-$g]}";
+    loop ( my $j = $i; ( $j > $g && @a[$j - $g] > $current); $j = $j - $g ) {
+      say "shift {@a[$j-$g]} to {$j+1}";
       @a[$j] = @a[$j - $g];
     }
     say "insert $current to {$j+1} position";
